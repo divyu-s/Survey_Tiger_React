@@ -51,7 +51,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
         setSquestions(newSurveyQuestions);
         setQtype(0);
         setQText("");
-        setOptions({uid: getRandom(), value:''},{uid: getRandom(), value:''});
+        setOptions([{uid: getRandom(), value:''},{uid: getRandom(), value:''}]);
 
     }
 
