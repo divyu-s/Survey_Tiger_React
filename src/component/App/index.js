@@ -2,7 +2,7 @@ import logo from '../../logo.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {useState} from 'react';
-import { BrowserRouter as Router, Switch ,Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom';
 import Menu from '../Menu/';
 import CreateSurvey from '../CreateSurvey/';
 import TakeSurvey from '../TakeSurvey/';

@@ -12,7 +12,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
     const [qText,setQText] = useState('');
     const [qType,setQtype] = useState(0);
     const [options, setOptions] = useState([{uid: getRandom(), value:''},{uid: getRandom(), value:''}]);
-    const defaultOptions = [{uid: getRandom(), value:''},{uid: getRandom(), value:''}]
+  
 
     const addOptions = ()=>{
              let newOptions = [...options,{uid: getRandom(), value:''}];
@@ -21,7 +21,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
 
     const deleteOptions = (id)=>{
         console.log("delete if",id)
-        if(options.length == 2){
+        if(options.length === 2){
             alert("Error: A select type question should have atleast 2 options")
         }
         else{
@@ -51,7 +51,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
         setSquestions(newSurveyQuestions);
         setQtype(0);
         setQText("");
-        setOptions(deleteOptions);
+        setOptions({uid: getRandom(), value:''},{uid: getRandom(), value:''});
 
     }
 
