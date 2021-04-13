@@ -4,7 +4,7 @@ import Question from '../Question'
 import TypeSelector from '../TypeSelector'
 import {useState} from "react"
 import { useHistory } from 'react-router'
-import { isCompositeComponent } from 'react-dom/test-utils'
+
 
 export default function CreateSurvey({squestions,setSquestions}) {
      
@@ -48,6 +48,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
                 flag = false;
             }
         });
+
         if(qText!=="" && flag){
         let newSurveyQuestions = [...squestions];
         let newQ = {
