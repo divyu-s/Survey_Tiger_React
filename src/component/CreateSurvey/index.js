@@ -4,6 +4,7 @@ import Question from '../Question'
 import TypeSelector from '../TypeSelector'
 import {useState} from "react"
 import { useHistory } from 'react-router'
+import { isCompositeComponent } from 'react-dom/test-utils'
 
 export default function CreateSurvey({squestions,setSquestions}) {
      
@@ -41,6 +42,13 @@ export default function CreateSurvey({squestions,setSquestions}) {
     }
 
     const updateSurveyQuestion =()=>{
+        let flag = true;
+        options.forEach((item)=>{
+            if(item.value===""){
+                flag = false;
+            }
+        });
+        if(qText!=="" && flag){
         let newSurveyQuestions = [...squestions];
         let newQ = {
                qtext : qText,
@@ -48,10 +56,23 @@ export default function CreateSurvey({squestions,setSquestions}) {
                options : options
         }
         newSurveyQuestions.push(newQ);
+        alert("Question Added Successfully")
         setSquestions(newSurveyQuestions);
         setQtype(0);
         setQText("");
         setOptions([{uid: getRandom(), value:''},{uid: getRandom(), value:''}]);
+    }
+    else{
+        alert("Question and Option's can't be empty");
+    }
+   return  qText!=="" && flag
+
+    }
+
+    const publish = ()=>{
+        const flag = updateSurveyQuestion();
+        if(flag)
+        {history.push("/takeSurvey")}
 
     }
 
@@ -67,7 +88,7 @@ export default function CreateSurvey({squestions,setSquestions}) {
             ))
         }
         <button className="btn btn-primary m-1" onClick={updateSurveyQuestion}>Add Question</button>
-        <button className="btn btn-primary m-1" onClick={()=>{updateSurveyQuestion();history.push("/takeSurvey")}}>Publish</button>
+        <button className="btn btn-primary m-1" onClick={()=>{publish()}}>Publish</button>
         </>
            : null
         }

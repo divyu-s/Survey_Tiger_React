@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 export default function TakeSurvey({questions}) {
+    const history = useHistory();
     return (
         <>
         <div className="mt-5 text-left">
@@ -34,7 +36,7 @@ export default function TakeSurvey({questions}) {
             }
             {questions?.length !==0 ?
       <div className="text-right">
-      <button className="btn btn-primary">Confirm</button>
+      <button className="btn btn-primary" onClick={()=>{alert("Your Response's are Recorded");history.push("/")}}>Confirm</button>
   </div>  :
    null
             }
